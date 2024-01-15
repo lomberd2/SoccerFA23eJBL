@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Team {
-    private String name;
-    private Coach coach;
-    private Goalkeeper goalkeeper;
-    private ArrayList<Player> squad;
+    private final String name;
+    private final Coach coach;
+    private final Goalkeeper goalkeeper;
+    private final ArrayList<Player> squad;
 
     public Team(String name, Coach coach, Goalkeeper goalkeeper) {
         this.name = name;
@@ -31,5 +31,28 @@ public class Team {
             totalForce += player.getForce();
         }
         return totalForce;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("***Mannschaft***\n");
+        stringBuilder.append("Team: ").append(this.name).append("\n");
+        stringBuilder.append("Trainer: ").append(this.coach.name).append("\n");
+        stringBuilder.append("Torhüter: ").append(this.goalkeeper.name).append("\n");
+
+        for (Player player : this.squad) {
+            stringBuilder.append("Spieler: ").append(player.name).append("\n");
+        }
+
+        return stringBuilder.toString();
     }
 }

@@ -1,8 +1,10 @@
+import java.util.Random;
+
 public class Player extends Person {
 
-    protected int force;
-    protected int powerAtGoalKick;
-    protected int motivation;
+    protected int force; // 1-10
+    protected int powerAtGoalKick; // 1-10
+    protected int motivation; // 1-10
     protected int numberOfGoals;
 
     public Player(String name, int age) {
@@ -11,14 +13,17 @@ public class Player extends Person {
 
     public Player(String name, int age, int force, int powerAtGoalKick, int motivation, int numberOfGoals) {
         super(name, age);
-        this.force = force;
-        this.powerAtGoalKick = powerAtGoalKick;
-        this.motivation = this.validate(motivation);
+        this.force = super.validate(force);
+        this.powerAtGoalKick = super.validate(powerAtGoalKick);
+        this.motivation = super.validate(motivation);
         this.numberOfGoals = numberOfGoals;
     }
 
     public int shootAtGoal() {
-        return 0;
+        int rdmInt = new Random().nextInt(-2,1);
+        int actualPowerAtGoalKick = this.powerAtGoalKick + rdmInt;
+
+        return super.validate(actualPowerAtGoalKick);
     }
 
     public void addGoal() {
