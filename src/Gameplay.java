@@ -29,7 +29,7 @@ public class Gameplay {
 
         }
 
-        System.out.println("\n");
+        System.out.print("\n");
 
         delay();
     }
