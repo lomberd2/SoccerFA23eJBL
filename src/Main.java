@@ -43,5 +43,8 @@ public class Main {
         game.increaseAwayGoals();
 
         System.out.println(game);
+
+        Gameplay gameplay = new Gameplay(game);
+        gameplay.play();
     }
 }

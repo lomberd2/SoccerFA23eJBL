@@ -46,6 +46,20 @@ public class Team {
         return this.name;
     }
 
+    public boolean hasPlayer(Player player)
+    {
+        return this.squad.contains(player);
+    }
+
+    public Player getRandomPlayer() {
+        int randomIndex = (int) (Math.random() * this.squad.size());
+        return this.squad.get(randomIndex);
+    }
+
+    public Goalkeeper getGoalkeeper() {
+        return goalkeeper;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
