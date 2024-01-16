@@ -18,7 +18,7 @@ public class Gameplay {
         System.out.println(player.name + " zieht ab");
         int playerShootForce = player.shootAtGoal();
 
-        //delay();
+        delay();
 
         if (goalkeeper.ballHold(playerShootForce)) {
             System.out.println(goalkeeper.name + " pariert glanzvoll");
@@ -31,7 +31,7 @@ public class Gameplay {
 
         System.out.println("\n");
 
-        //delay();
+        delay();
     }
 
     private void delay() {
