@@ -31,7 +31,7 @@ public class Team {
         totalForce += this.goalkeeper.getForce();
 
         // add first 10 players of team
-        for (int i = 0; i < 10 && (i+1 < this.squad.size()); i++) {
+        for (int i = 0; i < 10 && (i < this.squad.size()); i++) {
             totalForce += this.squad.get(i).getForce();
         }
 
