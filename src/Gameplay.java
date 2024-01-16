@@ -5,14 +5,14 @@ public class Gameplay {
     private static final int MAX_ADDITIONAL_TIME = 5;
     private static final int MAX_DURATION_UNTIL_NEXT_ACTION = 15;
 
-    private Game game;
+    private final Game game;
 
     public Gameplay(Game game) {
         this.game = game;
     }
 
     private void doGameAction(Player player, Goalkeeper goalkeeper, int minute, Team team) {
-        System.out.println(String.valueOf(minute) + ". Minute:");
+        System.out.println(minute + ". Minute:");
         System.out.println("Chance für " + team.getName() + " ...");
 
         System.out.println(player.name + " zieht ab");
@@ -50,12 +50,11 @@ public class Gameplay {
         // Ermittel wie lange das Spiel dauert (mind. Spielzeit <-> max. Spielzeit + max. Nachspielzeit)
         int duration = PLAYING_TIME + new Random().nextInt(MAX_ADDITIONAL_TIME);
 
-        int minute = 0;
         int lastActionMinute = 0;
         int nextActionMinute = 0;
 
         // Spiel loop
-        for (minute = 0; minute < duration; minute++) {
+        for (int minute = 0; minute < duration; minute++) {
             if (minute == 0) {
                 System.out.println("Anpfiff");
             } else {
