@@ -18,19 +18,24 @@ public class Team {
     }
 
     public int getTotalMotivation() {
-        int totalMotivation = 0;
+        float totalMotivation = 0;
         for (Player player : this.squad) {
             totalMotivation += player.getMotivation();
         }
-        return totalMotivation;
+        return Math.round(totalMotivation / this.squad.size());
     }
 
     public int getTotalForce() {
-        int totalForce = 0;
-        for (Player player : this.squad) {
-            totalForce += player.getForce();
+        float totalForce = 0;
+
+        totalForce += this.goalkeeper.getForce();
+
+        // add first 10 players of team
+        for (int i = 0; i < 10 && (i+1 < this.squad.size()); i++) {
+            totalForce += this.squad.get(i).getForce();
         }
-        return totalForce;
+
+        return Math.round(totalForce / 11);
     }
 
     public Coach getCoach() {
