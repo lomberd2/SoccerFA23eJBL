@@ -30,7 +30,7 @@ public class Game {
     public void increaseGoalByPlayer(Player player) {
         // First we need to find the players team
         boolean isHomePlayer = this.home.hasPlayer(player);
-        player.numberOfGoals++;
+        player.addGoal();
 
         if (isHomePlayer) {
             increaseHomeGoals();
